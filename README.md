@@ -33,7 +33,7 @@ load the extension:
 
     %load_ext retina
 
-## Table of Contents 
+## Table of Contents
 
 Generates floating table of contents inside your notebook from the heading cells.
 Adds a button to the toolbar to toggle the floating table of contents.
@@ -49,13 +49,22 @@ and load it with this in your custom.js:
 IPython.load_extensions('toc');
 ```
 
+or, for iPython 2.x :
+```
+require(["base/js/events"], function (events) {
+  $([IPython.events]).on("app_initialized.NotebookApp", function () {
+    IPython.load_extensions('toc');
+  });
+});
+```
+
 ## Write and execute
 
 This IPython Notebook magic writes the content of the cell to a specified .py file before executing it.
-An identifier can be used when writing to the file, thus making it possible to overwrite previous iterations of the same code block. 
+An identifier can be used when writing to the file, thus making it possible to overwrite previous iterations of the same code block.
 The use case for this extension is to export selected code from a Notebook for reuse through a .py file.
 
 To install the extension use:
     %install_ext https://raw.githubusercontent.com/minrk/ipython_extensions/master/extensions/writeandexecute.py
-Then load it with 
+Then load it with
     %load_ext writeandexecute
